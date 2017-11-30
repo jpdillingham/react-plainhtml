@@ -60,8 +60,3 @@ class Square extends React.Component {
       );
     }
   }
-
-  ReactDOM.render(
-    <Game />,
-    document.getElementById('root')
-);
