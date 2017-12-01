@@ -5,7 +5,10 @@ class Marquee extends React.Component {
     
     render() {
         return (
-            <h1 id={this.props.id}>{this.props.greeting}</h1>
+            <div>
+                <h1 id={this.props.id}>{this.props.greeting}</h1>
+                <MarqueeControl boundMarquee={this.props.id}/>
+            </div>
         );
     }
 }
