@@ -4,6 +4,8 @@ class App extends React.Component {
             <div>
                 <Marquee greeting="Tic Tac Toe!"/>
                 <Game />
+                <Marquee id="second" greeting="This is another greeting!"/>
+                <MarqueeControl boundMarquee="second"/>
             </div>
         );
     }
