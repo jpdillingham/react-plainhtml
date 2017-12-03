@@ -1,3 +1,8 @@
+let Router = ReactRouter.Router;
+let BrowserRouter = ReactRouterDOM.BrowserRouter;
+let Route = ReactRouterDOM.Route;
+let Link = ReactRouterDOM.Link;
+
 class App extends React.Component {
     render() {
         return (
@@ -10,7 +15,8 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(
-    <App />,
-    document.getElementById("app")
-);
+ReactDOM.render((
+    <BrowserRouter>
+        <Route path="/" component={App}></Route>
+    </BrowserRouter>
+), document.getElementById('app'))
