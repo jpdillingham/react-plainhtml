@@ -2,8 +2,27 @@ let Router = ReactRouter.Router;
 let BrowserRouter = ReactRouterDOM.BrowserRouter;
 let Route = ReactRouterDOM.Route;
 let Link = ReactRouterDOM.Link;
+let Switch = ReactRouterDOM.Switch;
 
 class App extends React.Component {
+    render() {
+        return (
+            <BrowserRouter>
+                <div>
+                    <Link to="/">Home</Link>
+                    <Link to="/about">About</Link>
+                    <hr/>
+
+                    
+                    <Route exact path="/" component={Home}></Route>
+                    <Route path="/about" component={About}></Route>
+                </div>
+            </BrowserRouter>
+        );
+    }
+}
+
+class Home extends React.Component {
     render() {
         return (
             <div>
@@ -15,8 +34,16 @@ class App extends React.Component {
     }
 }
 
+class About extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>About</h1>
+            </div>
+        );
+    }
+}
+
 ReactDOM.render((
-    <BrowserRouter>
-        <Route path="/" component={App}></Route>
-    </BrowserRouter>
+    <App/>
 ), document.getElementById('app'))
