@@ -1,56 +1,35 @@
 class App extends React.Component {
-    render() {
-        return (
-            <Home />
-        );
-    }
-}
-
-class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             currentContent: <ABCContent/>,
-            activeKey: 'abc'
+            activeButton: 'abc'
         }
 
         this.navigate = this.navigate.bind(this);
-
-        this.navigationButtons = [
-          
-        ];
     }
 
     navigate(content) {
-        this.setState({activeKey: content.props.id, currentContent: content.props.children});
+        this.setState({activeButton: content.props.id, currentContent: content.props.content});
     }
 
     render() {
 
         return (
             <div>
-                {this.state.activeKey}
-                
-                <NavigationButton id='abc' handler={this.navigate} activeKey={this.state.activeKey}>
-                    <ABCContent/>
+                <NavigationButton id='abc' content={<ABCContent/>} handler={this.navigate} activeButton={this.state.activeButton}>
+                    ABC
                 </NavigationButton>
-                <NavigationButton id='xyz' handler={this.navigate} activeKey={this.state.activeKey}>
-                    <XYZContent/>
-                </NavigationButton>  
+                <NavigationButton id='xyz' content={<XYZContent/>} handler={this.navigate} activeButton={this.state.activeButton}>
+                    XYZ
+                </NavigationButton> 
+                <NavigationButton id='about' content={<About/>} handler={this.navigate} activeButton={this.state.activeButton}>
+                    About
+                </NavigationButton>
                 
                 <ContentFrame>
                     {this.state.currentContent}
                 </ContentFrame>
-            </div>
-        );
-    }
-}
-
-class About extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>About</h1>
             </div>
         );
     }
@@ -67,43 +46,14 @@ class ContentFrame extends React.Component {
 }
 
 class NavigationButton extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            active: false
-        }
-    }
-
     render() {
         return ( 
-            <button onClick={() => { 
-                this.setState({active: true}); 
-
+            <button className={this.props.activeButton == this.props.id ? 'button button-active' : 'button'} onClick={() => { 
                 this.props.handler(this)}
             }>
-                active: {this.props.activeKey}  this: {this.props.id}
-                {this.props.activeKey == this.props.id ? 'active' : 'inactive'}
+              {this.props.children}
             </button>
         );
-    }
-}
-
-class ABCContent extends React.Component {
-    render() {
-        return (
-            <div>
-                <Marquee id="first" greeting="Tic Tac Toe!"/>
-                <Game />
-                <Marquee id="second" greeting="This is another greeting!"/>
-            </div>
-        );
-    }
-}
-
-
-class XYZContent extends React.Component {
-    render () {
-        return (<h3>XYZ</h3>);
     }
 }
 
