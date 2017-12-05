@@ -1,23 +1,7 @@
-let Router = ReactRouter.Router;
-let BrowserRouter = ReactRouterDOM.BrowserRouter;
-let Route = ReactRouterDOM.Route;
-let Link = ReactRouterDOM.Link;
-let Switch = ReactRouterDOM.Switch;
-
 class App extends React.Component {
     render() {
         return (
-            <BrowserRouter>
-                <div>
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About</Link>
-                    <hr/>
-
-                    
-                    <Route exact path="/" component={Home}></Route>
-                    <Route path="/about" component={About}></Route>
-                </div>
-            </BrowserRouter>
+            <Home />
         );
     }
 }
@@ -33,41 +17,27 @@ class Home extends React.Component {
         this.navigate = this.navigate.bind(this);
 
         this.navigationButtons = [
-            <NavigationButton key='abc' handler={this.navigate} activeKey={this.state.activeKey}>
-                <ABCContent/>
-            </NavigationButton>,
-            <NavigationButton key='xyz' handler={this.navigate} activeKey={this.state.activeKey}>
-                <XYZContent/>
-            </NavigationButton>            
+          
         ];
     }
 
     navigate(content) {
-        this.setState({currentContent: content});
+        this.setState({activeKey: content.props.id, currentContent: content.props.children});
     }
 
     render() {
 
         return (
             <div>
-                <Marquee id="first" greeting="Tic Tac Toe!"/>
-                <Game />
-                <Marquee id="second" greeting="This is another greeting!"/>
-
-                <button onClick={() => this.setState({currentContent: <XYZContent/>})}>Switch</button>
+                {this.state.activeKey}
                 
-                <NavigationButton handler={this.navigate}>
+                <NavigationButton id='abc' handler={this.navigate} activeKey={this.state.activeKey}>
                     <ABCContent/>
                 </NavigationButton>
-                
-                <NavigationButton handler={this.navigate}>
+                <NavigationButton id='xyz' handler={this.navigate} activeKey={this.state.activeKey}>
                     <XYZContent/>
-                </NavigationButton>
-
-                <hr/>
-
-                {this.navigationButtons}
-
+                </NavigationButton>  
+                
                 <ContentFrame>
                     {this.state.currentContent}
                 </ContentFrame>
@@ -96,12 +66,6 @@ class ContentFrame extends React.Component {
     }
 }
 
-class ABCContent extends React.Component {
-    render() {
-        return (<h3>ABC</h3>);
-    }
-}
-
 class NavigationButton extends React.Component {
     constructor(props) {
         super(props);
@@ -114,13 +78,28 @@ class NavigationButton extends React.Component {
         return ( 
             <button onClick={() => { 
                 this.setState({active: true}); 
-                this.props.handler(this.props.children)}
+
+                this.props.handler(this)}
             }>
-                {this.props.activeKey == this.props.key ? 'active' : 'inactive'}
+                active: {this.props.activeKey}  this: {this.props.id}
+                {this.props.activeKey == this.props.id ? 'active' : 'inactive'}
             </button>
         );
     }
 }
+
+class ABCContent extends React.Component {
+    render() {
+        return (
+            <div>
+                <Marquee id="first" greeting="Tic Tac Toe!"/>
+                <Game />
+                <Marquee id="second" greeting="This is another greeting!"/>
+            </div>
+        );
+    }
+}
+
 
 class XYZContent extends React.Component {
     render () {
