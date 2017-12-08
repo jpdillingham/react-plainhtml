@@ -3,18 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">= 6"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/server.js",
+    "build": "babel src -d dist"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.17.1",
-    "babel-standalone": "^6.26.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "express": "^4.16.2"
   }
 }
