@@ -1,4 +1,7 @@
-class Crypto extends React.Component {
+import React, { Component } from 'react';
+import axios from 'axios';
+
+class Crypto extends Component {
     constructor(props) {
         super(props);
         
@@ -36,3 +39,5 @@ class Crypto extends React.Component {
         );
     }
 }
+
+export default Crypto;

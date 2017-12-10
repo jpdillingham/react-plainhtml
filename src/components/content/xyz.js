@@ -1,4 +1,6 @@
-class XYZContent extends React.Component {
+import React, { Component } from 'react';
+
+class XYZContent extends Component {
     render () {
         return (
             <div>
@@ -8,3 +10,5 @@ class XYZContent extends React.Component {
         );
     }
 }
+
+export default XYZContent;

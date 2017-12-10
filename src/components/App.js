@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import ABCContent from './content/Abc';
+import XYZContent from './content/Xyz';
+import Crypto from './content/Crypto';
+import About from './content/About';
 
 class App extends Component {
   constructor(props) {
