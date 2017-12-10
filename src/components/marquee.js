@@ -1,4 +1,6 @@
-class Marquee extends React.Component {
+import React, { Component } from 'react';
+
+class Marquee extends Component {
     constructor(props) {
         super(props);
     }
@@ -13,7 +15,7 @@ class Marquee extends React.Component {
     }
 }
 
-class MarqueeControl extends React.Component {
+class MarqueeControl extends Component {
     constructor(props) {
         super(props);
     }
@@ -30,3 +32,5 @@ class MarqueeControl extends React.Component {
         )
     }
 }
+
+export default Marquee;
