@@ -12,17 +12,28 @@ class App extends Component {
           activeButton: 'abc'
       }
 
-      this.navigate = this.navigate.bind(this);
+      this.navigate = this.navigate.bind(this); // why is this necessary,
+      this.greet = this.greet.bind(this); // but not this?
   }
 
   navigate(content) {
       this.setState({activeButton: content.props.id, currentContent: content.props.content});
   }
 
+  greet(name) {
+      this.props.store.dispatch({ type: 'HELLO_NAME', name: name});
+  }
+
   render() {
 
       return (
           <div>
+              <button onClick={() => this.greet('Alice')}>Alice</button>
+              <button onClick={() => this.greet('Ben')}>Ben</button>
+              <button onClick={() => this.greet('Carl')}>Carl</button>
+
+              <br/>
+
               <NavigationButton id='abc' content={<ABCContent/>} handler={this.navigate} activeButton={this.state.activeButton}>
                   ABC
               </NavigationButton>
