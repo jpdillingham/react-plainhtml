@@ -16,3 +16,10 @@ ReactDOM.render(
     </Provider>, 
     document.getElementById('root')
 );
+
+store.subscribe(() => {
+    console.log(store.getState());
+});
+
+store.dispatch({ type: 'HELLO_NAME', name: 'Bob'});
+store.dispatch({ type: 'HOLA_NAME', name: "Roberto"})
