@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   navigate(content) {
-      this.setState({activeButton: content.props.id, currentContent: content.props.content});
+      this.setState({currentContent: content});
   }
 
   greet(name) {
@@ -36,28 +36,13 @@ class App extends Component {
 
               <br/>
 
-              <Navbar>
-                  <NavbarButton content={ABCContent}>Link one</NavbarButton>
-                  <NavbarButton content={XYZContent}>Link two</NavbarButton>
+              <Navbar navigateHandler={this.navigate}>
+                  <NavbarButton content={<ABCContent/>}>ABC</NavbarButton>
+                  <NavbarButton content={<XYZContent/>}>XYZ</NavbarButton>
+                  <NavbarButton content={<About/>}>About</NavbarButton>
+                  <NavbarButton content={<Crypto symbol='BTC'/>}>BTC</NavbarButton>
+                  <NavbarButton content={<Crypto symbol='XRP'/>}>XRP</NavbarButton>
               </Navbar>
-
-              <br/>
-
-              <NavigationButton id='abc' content={<ABCContent/>} handler={this.navigate} activeButton={this.state.activeButton}>
-                  ABC
-              </NavigationButton>
-              <NavigationButton id='xyz' content={<XYZContent/>} handler={this.navigate} activeButton={this.state.activeButton}>
-                  XYZ
-              </NavigationButton> 
-              <NavigationButton id='about' content={<About/>} handler={this.navigate} activeButton={this.state.activeButton}>
-                  About
-              </NavigationButton>
-              <NavigationButton id='btc' content={<Crypto symbol='BTC'/>} handler={this.navigate} activeButton={this.state.activeButton}>
-                  BTC
-              </NavigationButton>
-              <NavigationButton id='xrp' content={<Crypto symbol='XRP'/>} handler={this.navigate} activeButton={this.state.activeButton}>
-                  XRP
-              </NavigationButton>
 
               <ContentFrame id='content'>
                   {this.state.currentContent}
@@ -76,18 +61,5 @@ class ContentFrame extends React.Component {
       );
   }
 }
-
-class NavigationButton extends React.Component {
-  render() {
-      return ( 
-          <button className={this.props.activeButton == this.props.id ? 'button button-active' : 'button'} onClick={() => { 
-              this.props.handler(this)}
-          }>
-            {this.props.children}
-          </button>
-      );
-  }
-}
-
 
 export default App;
