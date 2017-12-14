@@ -3,6 +3,8 @@ import ABCContent from './content/Abc';
 import XYZContent from './content/Xyz';
 import Crypto from './content/Crypto';
 import About from './content/About';
+import Navbar from './navigation/Navbar';
+import NavbarButton from './navigation/NavbarButton';
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +36,13 @@ class App extends Component {
 
               <br/>
 
+              <Navbar>
+                  <NavbarButton content={ABCContent}>Link one</NavbarButton>
+                  <NavbarButton content={XYZContent}>Link two</NavbarButton>
+              </Navbar>
+
+              <br/>
+
               <NavigationButton id='abc' content={<ABCContent/>} handler={this.navigate} activeButton={this.state.activeButton}>
                   ABC
               </NavigationButton>
@@ -50,7 +59,7 @@ class App extends Component {
                   XRP
               </NavigationButton>
 
-              <ContentFrame>
+              <ContentFrame id='content'>
                   {this.state.currentContent}
               </ContentFrame>
           </div>
