@@ -37,7 +37,7 @@ class Navbar extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state);
+    console.log(state.navigate);
 }
 
 const NavbarInstance = connect(
