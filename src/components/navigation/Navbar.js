@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Navbar extends Component {
     constructor(props) {
@@ -49,4 +50,12 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+function mapStateToProps(state) {
+    console.log(state);
+}
+
+const NavbarInstance = connect(
+    mapStateToProps
+  )(Navbar)
+
+export default NavbarInstance;
