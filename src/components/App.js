@@ -39,7 +39,9 @@ class App extends Component {
               <button onClick={() => this.greet('Ben')}>Ben</button>
               <button onClick={() => this.greet('Carl')}>Carl</button>
 
-              <button onClick={() => this.testNavigate('testing', 'content')}>Test</button>
+              <button onClick={() => this.testNavigate('testing 1', 'content 1')}>Test 1</button>
+              <button onClick={() => this.testNavigate('testing 2', 'content 2')}>Test 2</button>
+              <button onClick={() => this.testNavigate('testing 3', 'content 3')}>Test 3</button>
 
               <br/>
 

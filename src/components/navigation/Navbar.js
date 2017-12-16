@@ -5,10 +5,6 @@ class Navbar extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            activeButton: null
-        }
-
         //this.navigate = this.navigate.bind(this);
     }
 
@@ -30,7 +26,7 @@ class Navbar extends Component {
         return(
             <div className='navbar'>
                 {/*<div>{childrenWithProps}</div>*/}
-                <span>Active: {this.state.activeButton} !</span>
+                <span>Active: {this.props.activeButton} !</span>
             </div>
         );
     }
