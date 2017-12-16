@@ -9,39 +9,31 @@ class Navbar extends Component {
             activeButton: null
         }
 
-        this.navigate = this.navigate.bind(this);
+        //this.navigate = this.navigate.bind(this);
     }
 
-    navigate(id, content) {
-        this.setState({ activeButton: id });
+    //navigate(id, content) {
+    //    this.setState({ activeButton: id });
         
-        this.props.navigateHandler(content);
-    }
+    //    this.props.navigateHandler(content);
+    //}
     
     render() { 
-        const { children } = this.props;
+        {/*const { children } = this.props;
 
         var childrenWithProps = React.Children.map(children, child => React.cloneElement(child, { 
             id: child.props.id, 
             activeButton: this.state.activeButton, 
             handler: () => this.navigate(child.props.id, child.props.content)
-        }));
+        }));*/}
 
         return(
             <div className='navbar'>
-                <div>{childrenWithProps}</div>
-                <span>Active: {this.state.activeButton}</span>
+                {/*<div>{childrenWithProps}</div>*/}
+                <span>Active: {this.state.activeButton} !</span>
             </div>
         );
     }
 }
 
-function mapStateToProps(state) {
-    console.log(state.navigate);
-}
-
-const NavbarInstance = connect(
-    mapStateToProps
-  )(Navbar)
-
-export default NavbarInstance;
+export default Navbar;

@@ -5,6 +5,7 @@ import Crypto from './content/Crypto';
 import About from './content/About';
 import Navbar from './navigation/Navbar';
 import NavbarButton from './navigation/NavbarButton';
+import Navigation from '../containers/Navigation';
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +23,10 @@ class App extends Component {
       this.setState({currentContent: content});
   }
 
+  testNavigate(active, content) {
+      this.props.store.dispatch({ type: 'NAVIGATE', data: { id: active, content: content }});
+  }
+
   greet(name) {
       this.props.store.dispatch({ type: 'HELLO_NAME', name: name});
   }
@@ -34,19 +39,24 @@ class App extends Component {
               <button onClick={() => this.greet('Ben')}>Ben</button>
               <button onClick={() => this.greet('Carl')}>Carl</button>
 
+              <button onClick={() => this.testNavigate('testing', 'content')}>Test</button>
+
               <br/>
 
-              <Navbar navigateHandler={this.navigate}>
+              <Navigation>
+              </Navigation>
+
+              {/*<Navbar navigateHandler={this.navigate}>
                   <NavbarButton id='abc' content={<ABCContent/>}>ABC</NavbarButton>
                   <NavbarButton id='xyz' content={<XYZContent/>}>XYZ</NavbarButton>
                   <NavbarButton id='about' content={<About/>}>About</NavbarButton>
                   <NavbarButton id='btc' content={<Crypto symbol='BTC'/>}>BTC</NavbarButton>
                   <NavbarButton id='xrp' content={<Crypto symbol='XRP'/>}>XRP</NavbarButton>
-              </Navbar>
+      </Navbar>*/}
 
-              <ContentFrame id='content'>
+              {/*<ContentFrame id='content'>
                   {this.state.currentContent}
-              </ContentFrame>
+    </ContentFrame>}*/}
           </div>
       );
   }

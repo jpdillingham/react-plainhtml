@@ -20,10 +20,5 @@ ReactDOM.render(
 );
 
 store.subscribe(() => {
-    console.log(store.getState());
+    console.log('subscription:', store.getState());
 });
-
-store.dispatch({ type: 'HELLO_NAME', name: 'Bob'});
-store.dispatch({ type: 'HOLA_NAME', name: "Roberto"})
-
-store.dispatch({ type: 'NAVIGATE', data: { id: 'test', content: 'abc' } });
