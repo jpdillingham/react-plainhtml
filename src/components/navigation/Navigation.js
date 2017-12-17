@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Navbar extends Component {
+class NavigationComponent extends Component {
     constructor(props) {
         super(props);
 
@@ -38,6 +38,6 @@ const mapStateToProps = (state) => ({
 
 const Navigation = connect(
     mapStateToProps
-)(Navbar)
+)(NavigationComponent)
 
 export default Navigation

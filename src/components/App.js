@@ -3,9 +3,8 @@ import ABCContent from './content/Abc';
 import XYZContent from './content/Xyz';
 import Crypto from './content/Crypto';
 import About from './content/About';
-import Navigation from './navigation/Navbar';
+import Navigation from './navigation/Navigation';
 import NavbarButton from './navigation/NavbarButton';
-//import Navigation from '../containers/Navigation';
 
 class App extends Component {
   constructor(props) {
