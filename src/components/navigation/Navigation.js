@@ -32,12 +32,10 @@ class NavigationComponent extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    activeButton: state.navigate.id
-});
+const mapStateToProps = (state) => {
+    return { activeButton: state.navigate.id }
+};
 
-const Navigation = connect(
-    mapStateToProps
-)(NavigationComponent)
+const Navigation = connect(mapStateToProps)(NavigationComponent)
 
 export default Navigation
