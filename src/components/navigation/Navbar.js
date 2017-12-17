@@ -32,4 +32,12 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+    activeButton: state.navigate.id
+});
+
+const Navigation = connect(
+    mapStateToProps
+)(Navbar)
+
+export default Navigation
