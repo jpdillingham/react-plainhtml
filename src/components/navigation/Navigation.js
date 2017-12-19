@@ -27,15 +27,23 @@ class NavigationComponent extends Component {
             <div className='navbar'>
                 {/*<div>{childrenWithProps}</div>*/}
                 <span>Active: {this.props.activeButton} !</span>
+                <button onClick={this.props.onClick}>test</button>
             </div>
         );
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return { activeButton: state.navigate.id }
 };
 
-const Navigation = connect(mapStateToProps)(NavigationComponent)
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    onClick: () => {
+        console.log(ownProps);
+      dispatch({ type: 'NAVIGATE', data: { id: ownProps.activeButton, content: 'content' }})
+    }
+});
+
+const Navigation = connect(mapStateToProps, mapDispatchToProps)(NavigationComponent)
 
 export default Navigation

@@ -44,7 +44,7 @@ class App extends Component {
 
               <br/>
 
-              <Navigation>
+              <Navigation activeButton="testProp">
               </Navigation>
 
               {/*<Navbar navigateHandler={this.navigate}>
