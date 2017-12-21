@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class Marquee extends Component {
-    constructor(props) {
-        super(props);
-    }
-    
     render() {
         return (
             <div>
@@ -16,10 +12,6 @@ class Marquee extends Component {
 }
 
 class MarqueeControl extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     extendGreeting(extension) {
         let control = document.getElementById(this.props.boundMarquee);
 
