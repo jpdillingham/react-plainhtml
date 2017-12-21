@@ -34,7 +34,7 @@ class NavigationComponent extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return { activeButton: state.navigate.id }
+    return { activeButton: state.navigation.id }
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

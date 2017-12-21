@@ -8,7 +8,7 @@ import App from './components/App';
 
 import './style.css';
 
-const Navigation = (state = { id: 'default', content: null }, action) => {
+const navigation = (state = { id: 'default', content: null }, action) => {
     switch (action.type) {
         case 'NAVIGATE':
             return { id: action.data.id, content: action.data.content };
@@ -17,7 +17,7 @@ const Navigation = (state = { id: 'default', content: null }, action) => {
     }
 }
 
-const Greeting = (state = 'N/A', action) => {
+const greeting = (state = 'N/A', action) => {
     switch (action.type) {
         case 'HELLO_NAME':
             return 'Hello, ' + action.name + '!';
@@ -28,7 +28,7 @@ const Greeting = (state = 'N/A', action) => {
     }
 }
 
-const store = createStore(combineReducers({ greeting: Greeting, navigate: Navigation }));
+const store = createStore(combineReducers({ greeting, navigation }));
 
 store.subscribe(() => {
     console.log('state:', store.getState());
