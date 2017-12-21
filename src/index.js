@@ -12,13 +12,13 @@ import './style.css';
 
 const store = createStore(combineReducers({ greeting: Greeting, navigate: Navigate }));
 
+store.subscribe(() => {
+    console.log('state:', store.getState());
+});
+
 ReactDOM.render(
     <Provider store={store}>
         <App store={store}/>
     </Provider>, 
     document.getElementById('root')
 );
-
-store.subscribe(() => {
-    console.log('subscription:', store.getState());
-});
