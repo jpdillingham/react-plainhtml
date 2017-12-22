@@ -32,6 +32,7 @@ const store = createStore(combineReducers({ greeting, navigation }));
 
 store.subscribe(() => {
     console.log('state:', store.getState());
+    console.log('nav: ', store.getState().navigation.content);
 });
 
 ReactDOM.render(

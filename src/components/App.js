@@ -45,19 +45,12 @@ class App extends Component {
               <br/>
 
               <Navigation activeButton="testProp">
+                <NavbarButton id='abc' content={<ABCContent/>}>ABC</NavbarButton>
+                <NavbarButton id='xyz' content={<XYZContent/>}>XYZ</NavbarButton>
+                <NavbarButton id='about' content={<About/>}>About</NavbarButton>
+                <NavbarButton id='btc' content={<Crypto symbol='BTC'/>}>BTC</NavbarButton>
+                <NavbarButton id='xrp' content={<Crypto symbol='XRP'/>}>XRP</NavbarButton>
               </Navigation>
-
-              {/*<Navbar navigateHandler={this.navigate}>
-                  <NavbarButton id='abc' content={<ABCContent/>}>ABC</NavbarButton>
-                  <NavbarButton id='xyz' content={<XYZContent/>}>XYZ</NavbarButton>
-                  <NavbarButton id='about' content={<About/>}>About</NavbarButton>
-                  <NavbarButton id='btc' content={<Crypto symbol='BTC'/>}>BTC</NavbarButton>
-                  <NavbarButton id='xrp' content={<Crypto symbol='XRP'/>}>XRP</NavbarButton>
-      </Navbar>*/}
-
-              {/*<ContentFrame id='content'>
-                  {this.state.currentContent}
-    </ContentFrame>}*/}
           </div>
       );
   }
