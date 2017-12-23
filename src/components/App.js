@@ -5,7 +5,7 @@ import Crypto from './content/Crypto';
 import About from './content/About';
 import Navigation from './navigation/Navigation';
 import NavbarButton from './navigation/NavbarButton';
-import ContentFrame from './content/ContentFrame';
+import ContentFrame from './ContentFrame';
 
 class App extends Component {
   constructor(props) {

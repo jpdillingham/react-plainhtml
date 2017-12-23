@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-class ContentFrame extends React.Component {
+class ContentFrameComponent extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <div id="content">
-                {this.props.children}
+                {this.props.content}
             </div>
         );
     }
-  }
+}
 
-  export default ContentFrame
+const mapStateToProps = (state, ownProps) => {
+    return { id: state.navigation.id, content: state.navigation.content }
+};
+
+const ContentFrame = connect(mapStateToProps)(ContentFrameComponent)
+
+export default ContentFrame
