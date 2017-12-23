@@ -4,7 +4,7 @@ import XYZContent from './content/Xyz';
 import Crypto from './content/Crypto';
 import About from './content/About';
 import Navigation from './navigation/Navigation';
-import NavbarButton from './navigation/NavbarButton';
+import NavigationButton from './navigation/NavigationButton';
 import ContentFrame from './ContentFrame';
 
 class App extends Component {
@@ -12,11 +12,11 @@ class App extends Component {
       return (
           <div>
               <Navigation>
-                <NavbarButton id='abc' content={<ABCContent/>}>ABC</NavbarButton>
-                <NavbarButton id='xyz' content={<XYZContent/>}>XYZ</NavbarButton>
-                <NavbarButton id='about' content={<About/>}>About</NavbarButton>
-                <NavbarButton id='btc' content={<Crypto symbol='BTC'/>}>BTC</NavbarButton>
-                <NavbarButton id='xrp' content={<Crypto symbol='XRP'/>}>XRP</NavbarButton>
+                <NavigationButton id='abc' content={<ABCContent/>}>ABC</NavigationButton>
+                <NavigationButton id='xyz' content={<XYZContent/>}>XYZ</NavigationButton>
+                <NavigationButton id='about' content={<About/>}>About</NavigationButton>
+                <NavigationButton id='btc' content={<Crypto symbol='BTC'/>}>BTC</NavigationButton>
+                <NavigationButton id='xrp' content={<Crypto symbol='XRP'/>}>XRP</NavigationButton>
               </Navigation>
 
               <ContentFrame/>
