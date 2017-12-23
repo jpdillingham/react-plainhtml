@@ -8,31 +8,26 @@ import App from './components/App';
 
 import './style.css';
 
-const navigation = (state = { id: 'default', content: null }, action) => {
+const initialState = {
+    navigation: {
+        id: 'default',
+        content: null
+    }
+}
+
+const navigation = (state = initialState, action) => {
     switch (action.type) {
         case 'NAVIGATE':
-            return { id: action.data.id, content: action.data.content };
+            return { navigation: { id: action.data.id, content: action.data.content }};
         default: 
             return state;
     }
 }
 
-const greeting = (state = 'N/A', action) => {
-    switch (action.type) {
-        case 'HELLO_NAME':
-            return 'Hello, ' + action.name + '!';
-        case 'HOLA_NAME':
-            return 'Hola, ' + action.name + '!';
-        default:
-            return state;
-    }
-}
-
-const store = createStore(combineReducers({ greeting, navigation }));
+const store = createStore(navigation);
 
 store.subscribe(() => {
-    console.log('state:', store.getState());
-    console.log('nav: ', store.getState().navigation.content);
+    console.log('state changed:', store.getState());
 });
 
 ReactDOM.render(
