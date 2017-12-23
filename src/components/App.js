@@ -8,44 +8,10 @@ import NavbarButton from './navigation/NavbarButton';
 import ContentFrame from './ContentFrame';
 
 class App extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-          currentContent: <ABCContent/>,
-          activeButton: 'abc'
-      }
-
-      this.navigate = this.navigate.bind(this); // why is this necessary,
-      this.greet = this.greet.bind(this); // but not this?
-  }
-
-  navigate(content) {
-      this.setState({currentContent: content});
-  }
-
-  testNavigate(active, content) {
-      this.props.store.dispatch({ type: 'NAVIGATE', data: { id: active, content: content }});
-  }
-
-  greet(name) {
-      this.props.store.dispatch({ type: 'HELLO_NAME', name: name});
-  }
-
   render() {
-
       return (
           <div>
-              <button onClick={() => this.greet('Alice')}>Alice</button>
-              <button onClick={() => this.greet('Ben')}>Ben</button>
-              <button onClick={() => this.greet('Carl')}>Carl</button>
-
-              <button onClick={() => this.testNavigate('testing 1', 'content 1')}>Test 1</button>
-              <button onClick={() => this.testNavigate('testing 2', 'content 2')}>Test 2</button>
-              <button onClick={() => this.testNavigate('testing 3', 'content 3')}>Test 3</button>
-
-              <br/>
-
-              <Navigation activeButton="testProp">
+              <Navigation>
                 <NavbarButton id='abc' content={<ABCContent/>}>ABC</NavbarButton>
                 <NavbarButton id='xyz' content={<XYZContent/>}>XYZ</NavbarButton>
                 <NavbarButton id='about' content={<About/>}>About</NavbarButton>

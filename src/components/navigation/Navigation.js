@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class NavigationComponent extends Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            activeButton: null
-        }
-    }
-    
     render() { 
         const { children } = this.props;
 
@@ -18,8 +10,6 @@ class NavigationComponent extends Component {
             active: child.props.id == this.props.activeButton,
             onClick: () => this.props.onClick(child.props.id, child.props.content)
         }));
-
-        console.log(childrenWithProps);
 
         return(
             <div className='navbar'>
