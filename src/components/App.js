@@ -5,6 +5,7 @@ import Crypto from './content/Crypto';
 import About from './content/About';
 import Navigation from './navigation/Navigation';
 import NavbarButton from './navigation/NavbarButton';
+import ContentFrame from './content/ContentFrame';
 
 class App extends Component {
   constructor(props) {
@@ -51,16 +52,8 @@ class App extends Component {
                 <NavbarButton id='btc' content={<Crypto symbol='BTC'/>}>BTC</NavbarButton>
                 <NavbarButton id='xrp' content={<Crypto symbol='XRP'/>}>XRP</NavbarButton>
               </Navigation>
-          </div>
-      );
-  }
-}
 
-class ContentFrame extends React.Component {
-  render() {
-      return (
-          <div id="content">
-              {this.props.children}
+              <ContentFrame/>
           </div>
       );
   }
