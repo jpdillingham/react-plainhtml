@@ -15,9 +15,11 @@ class NavigationComponent extends Component {
 
         var childrenWithProps = React.Children.map(children, child => React.cloneElement(child, { 
             id: child.props.id, 
-            activeButton: this.state.activeButton, 
-            handler: () => this.props.onClick(child.props.id, child.props.content)
+            active: child.props.id == this.props.activeButton,
+            onClick: () => this.props.onClick(child.props.id, child.props.content)
         }));
+
+        console.log(childrenWithProps);
 
         return(
             <div className='navbar'>
